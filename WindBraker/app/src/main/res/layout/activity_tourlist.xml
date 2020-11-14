@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/logo_main"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="Wind Braker"
+            android:textAllCaps="false"
+            android:textColor="#ff6b6b"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list_tourlist"
+            android:choiceMode="singleChoice"/>
+
+    </LinearLayout>
+    <include layout ="@layout/activity_drawer"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
