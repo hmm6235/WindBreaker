@@ -19,31 +19,45 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class TourListActivity extends AppCompatActivity {
 
 
     private ListView listView;
     ListViewAdapter adapter;
+    List<AttractionData> value;
+    MyRest t=new MyRest();
     private ArrayList<String> items = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tourlist);
-
 
         String str = getIntent().getExtras().getString("search_value");
 
         adapter = new ListViewAdapter();
         listView = findViewById(R.id.list_tourlist);
         listView.setAdapter(adapter);
-        adapter.addItem("가평","천안","010214141");
-        adapter.addItem("가평","천안","010214141");
-        adapter.addItem("가평","천안","010214141");
-        adapter.addItem("가평","천안","010214141");
-        adapter.addItem("가평","천안","010214141");
-        adapter.addItem(str,"asdf","saf");
+   try {
+
+                value = t.callAttraction(str);
+                for(int i=0;i<value.size();i++)
+                adapter.addItem(value.get(i).getName(),value.get(i).getAddress(),value.get(i).getTel());
+
+
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

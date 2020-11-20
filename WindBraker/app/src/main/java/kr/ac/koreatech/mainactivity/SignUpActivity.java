@@ -8,27 +8,26 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
-    Button btn_login;
+public class SignUpActivity extends AppCompatActivity {
+    Button btn_cancel;
     Button btn_sign;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        btn_login=findViewById(R.id.btn_login);
-        btn_sign=findViewById(R.id.btn_signupGo);
-        btn_login.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_signup);
+        btn_cancel=findViewById(R.id.btn_cancel);
+        btn_sign=findViewById(R.id.btn_signupFin);
         btn_sign.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
+                Intent intent=new Intent(SignUpActivity.this,LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+        btn_cancel.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
