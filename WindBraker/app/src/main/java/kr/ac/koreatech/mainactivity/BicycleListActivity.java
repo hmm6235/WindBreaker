@@ -2,36 +2,30 @@ package kr.ac.koreatech.mainactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class TourListActivity extends AppCompatActivity {
-    private TextView menu1,menu2,menu3;
+public class BicycleListActivity extends AppCompatActivity {
+    private TextView textview;
     private ListView listView;
     ListViewAdapter adapter;
     List<AttractionData> value;
+    private TextView menu1,menu2,menu3;
     private ImageView img;
     int count=1;
-    MyRest t=new MyRest();
+  //  MyRest t=new MyRest();
     private ArrayList<String> items = new ArrayList<String>();
 
 
@@ -41,8 +35,9 @@ public class TourListActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tourlist);
+        textview=(TextView)findViewById(R.id.text_bicyclelist);
 
-        //*************버튼 누르면 메뉴 열림
+
         menu1=(TextView)findViewById(R.id.menu_1);
         menu2=(TextView)findViewById(R.id.menu_2);
         menu3=(TextView)findViewById(R.id.menu_3);
@@ -97,6 +92,7 @@ public class TourListActivity extends AppCompatActivity {
                         break;
                     case 4:
                         img.setImageResource(R.drawable.img5);
+
                         break;
                 }
 
@@ -110,10 +106,10 @@ public class TourListActivity extends AppCompatActivity {
         adapter = new ListViewAdapter();
         listView = findViewById(R.id.list_tourlist);
         listView.setAdapter(adapter);
-   try {
+  /*      try {
 
-                value = t.callAttraction(str);
-                for(int i=0;i<value.size();i++)
+           value = t.callAttraction(str);
+            for(int i=0;i<value.size();i++)
                 adapter.addItem(value.get(i).getName(),value.get(i).getAddress(),value.get(i).getTel());
 
 
@@ -123,7 +119,7 @@ public class TourListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+*/
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer"
     android:layout_width="240dp"
     android:layout_height="match_parent"
@@ -9,48 +11,84 @@
     <TextView
         android:id="@+id/menu_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
         android:gravity="center"
+        android:fontFamily="@font/architectfont"
         android:onClick="onClick"
-        android:text="TEST1"
+        android:text="SEARCH"
         android:textColor="#FFFFFF"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/menu_2"
+        android:fontFamily="@font/architectfont"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
         android:gravity="center"
         android:onClick="onClick"
-        android:text="TEST2"
+        android:text="VIEW ALL TOUR LIST"
         android:textColor="#FFFFFF"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/menu_3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
         android:gravity="center"
+        android:fontFamily="@font/architectfont"
         android:onClick="onClick"
-        android:text="TEST3"
+        android:text="VIEW ALL BICYCLE LIST"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/menu_4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_margin="20dp"
         android:gravity="center"
         android:onClick="onClick"
         android:text="TEST4"
         android:textColor="#ffffff"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="234dp"
+            android:layout_height="42dp"
+            android:background="#DA3F82B5"
+            android:fontFamily="@font/nanumgothic"
+            android:gravity="center"
+            android:text="Developer : 최경흠,최우용,정수현,황미림"
+            android:textColor="#000000"
+            android:textSize="13dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.996" />
+
+        <ImageView
+            android:id="@+id/img_flower"
+            android:layout_width="240dp"
+            android:layout_height="284dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </LinearLayout>

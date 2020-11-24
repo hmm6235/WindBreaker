@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -12,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView menu1,menu2,menu3;
     private EditText edit_serach;
     private Button btn_search;
+    private ImageView img;
+    int count=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //**************************************
+
+
         Button btn_open=(Button)findViewById(R.id.btn_open);
         btn_open.setOnClickListener(new Button.OnClickListener(){
             @Override
@@ -46,28 +53,73 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //*************버튼 누르면 메뉴 열림
+
         menu1=(TextView)findViewById(R.id.menu_1);
         menu2=(TextView)findViewById(R.id.menu_2);
         menu3=(TextView)findViewById(R.id.menu_3);
+        img=(ImageView)findViewById(R.id.img_flower);
         menu1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                finish();
+                Intent intent = new Intent(getBaseContext(),MainActivity.class);
+                startActivity(intent);
 
             }
         });
         menu2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+                finish();
+                Intent intent = new Intent(getBaseContext(),TourListActivity.class);
+                intent.putExtra("search_value","");
+                startActivity(intent);
             }
         });
         menu3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                finish();
+                Intent intent = new Intent(getBaseContext(),BicycleListActivity.class);
+                intent.putExtra("search_value","");
+                startActivity(intent);
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                count=(count+1)%5;
+                switch (count){
+                    case 0:
+                        img.setImageResource(R.drawable.img1);
+                        break;
+                    case 1:
+                        img.setImageResource(R.drawable.img2);
+
+                        break;
+                    case 2:
+                        img.setImageResource(R.drawable.img3);
+
+                        break;
+                    case 3:
+                        img.setImageResource(R.drawable.img4);
+
+                        break;
+                    case 4:
+                        img.setImageResource(R.drawable.img5);
+
+                        break;
+                }
+
+
 
             }
         });
         //*****************메뉴로 액티비티 이동
+
+
+
         edit_serach=findViewById(R.id.edit_search);
         btn_search=findViewById(R.id.btn_search);
         btn_search.setOnClickListener(new View.OnClickListener(){

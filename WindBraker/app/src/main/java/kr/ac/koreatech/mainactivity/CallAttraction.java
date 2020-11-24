@@ -12,19 +12,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallAttraction extends AsyncTask<Integer, Void, List<AttractionData>> {
-    private String uri;
-    List<AttractionData> list = new ArrayList<>();
-    public CallAttraction(){super();uri = " http://3.17.125.138:8080/signUp";}
-    public CallAttraction(String uri){super();this.uri = uri;}
-    @Override
-    protected List<AttractionData> doInBackground(Integer... integers) {
-        //send("http://3.17.125.138:8080/signUp");
+        public class CallAttraction extends AsyncTask<Integer, Void, List<AttractionData>> {
+            private String uri;
+            List<AttractionData> list = new ArrayList<>();
+            public CallAttraction(){super();uri = " http://3.17.125.138:8080/signUp";}
+            public CallAttraction(String uri){super();this.uri = uri;}
+            @Override
+            protected List<AttractionData> doInBackground(Integer... integers) {
+                //send("http://3.17.125.138:8080/signUp");
 
-        URL myEndpoint =null;
-        HttpURLConnection myConnection = null;
-        InputStream responseBody = null;
-        InputStreamReader responseBodyReader = null;
+                URL myEndpoint =null;
+                HttpURLConnection myConnection = null;
+                InputStream responseBody = null;
+                InputStreamReader responseBodyReader = null;
         JsonReader jsonReader = null;
 
         try {
@@ -52,15 +52,15 @@ public class CallAttraction extends AsyncTask<Integer, Void, List<AttractionData
                 }
                 jsonReader.endArray();
 
-                //  String key = jsonReader.nextName();
-                // value = jsonReader.nextString();
-            } else {/*
+            //  String key = jsonReader.nextName();
+            // value = jsonReader.nextString();
+        } else {/*
                 value[0].setName("error");value[0].setAddress("error");value[0].setTel("error");
                 value[0].setDate("error");*/
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
         try {
             jsonReader.close();
         } catch (IOException e) {

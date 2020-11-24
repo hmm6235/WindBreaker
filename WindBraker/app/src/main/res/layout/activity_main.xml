@@ -59,6 +59,8 @@
         android:background="@drawable/logo_search" />
 
     <EditText
+        android:inputType="text"
+        android:imeOptions="actionDone"
         android:id="@+id/edit_search"
         android:layout_width="300dp"
         android:layout_height="50dp"
